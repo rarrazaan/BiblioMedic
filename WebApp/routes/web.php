@@ -18,6 +18,9 @@ Route::resource('obat',ObatController::class);
 Route::get('/dashboard', function(){
     return view('dashboard');
 });
-Route::get('/', function(){
+Route::get('/add', function(){
     return view('obat.add');
+});
+Route::get('/edit', function(){
+    return view('obat.edit');
 });

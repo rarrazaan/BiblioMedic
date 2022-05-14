@@ -10,10 +10,10 @@
             <div class="card">
                 <div style="width: 100%; margin: 10px" id='myDiv'>
                     <form>
-                        <div class="row mb-3">
+                    <div class="row mb-3">
                             <label class="col-sm-2 col-form-label">nama obat</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" name="nama_obat">
+                                <p></p>
                             </div>
                         </div>
                         <div class="row mb-3">
@@ -29,7 +29,7 @@
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label">aturan Pakai</label>
+                            <label class="col-sm-2 col-form-label">aturanPakai</label>
                             <div class="col-sm-10">
                                 <textarea class="form-control" name="aturanPakai"></textarea>
                             </div>
@@ -40,8 +40,6 @@
                                 <textarea class="form-control" name="peringatan"></textarea>
                             </div>
                         </div>
-                        <div class="text-center">
-                            <button type="submit" class="btn btn-success">Simpan</button>
                         </div>
                     </form>
                 </div>
