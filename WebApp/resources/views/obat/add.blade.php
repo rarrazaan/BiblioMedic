@@ -11,44 +11,33 @@
                 <div style="width: 100%; margin: 10px" id='myDiv'>
                     <form>
                         <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label">Kode</label>
+                            <label class="col-sm-2 col-form-label">nama obat</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control" name="nama_obat">
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label">Nama</label>
+                            <label class="col-sm-2 col-form-label">komposisi</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control">
+                                <textarea class="form-control" name="komposisi"></textarea>
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label">Deskripsi</label>
+                            <label class="col-sm-2 col-form-label">khasiat</label>
                             <div class="col-sm-10">
-                                <textarea class="form-control"></textarea>
+                                <textarea class="form-control" name="komposisi"></textarea>
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label">Tipe</label>
+                            <label class="col-sm-2 col-form-label">aturan Pakai</label>
                             <div class="col-sm-10">
-                                <select class="form-select">
-                                    <option selected>Pilih Tipe Obat</option>
-                                    <option value="1">Kapsul</option>
-                                    <option value="2">Tablet</option>
-                                    <option value="3">Sirup</option>
-                                </select>
+                                <textarea class="form-control" name="aturanPakai"></textarea>
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label">Jumlah</label>
+                            <label class="col-sm-2 col-form-label">peringatan</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control">
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label">Harga Satuan</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control">
+                                <textarea class="form-control" name="peringatan"></textarea>
                             </div>
                         </div>
                         <div class="text-center">
