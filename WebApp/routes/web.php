@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\Obat;
+use App\Http\Controllers\ObatController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,10 +14,10 @@ use App\Models\Obat;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    $title = 'Data Obat';
-    $obats = Obat::paginate();
-
-    return view('obat.index', compact('title', 'obats'));
+Route::resource('obat',ObatController::class);
+Route::get('/dashboard', function(){
+    return view('dashboard');
+});
+Route::get('/', function(){
+    return view('obat.add');
 });

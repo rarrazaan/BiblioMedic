@@ -81,25 +81,18 @@
                         </a>
                     </li>
 
-                    <li class="menu-header">Menu Museum</li>
-                    <li class="{{ Request::is('museum') ? 'active' : '' }}">
-                        <a class="nav-link" href="{{ url('museum') }}">
+                    <li class="menu-header">Menu Obat</li>
+                    <li class="{{ Request::is('obat') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ url('obat') }}">
                             <i class="fas fa-building"></i>
-                            <span>Halaman Museum</span>
+                            <span>Halaman Obat</span>
                         </a>
                     </li>
 
                     <li class="{{ Request::is('transaction') ? 'active' : '' }}">
                         <a class="nav-link" href="{{ url('transaction') }}">
                             <i class="fas fa-book"></i>
-                            <span>Halaman Transaksi</span>
-                        </a>
-                    </li>
-
-                    <li class="{{ Request::is('verification') ? 'active' : '' }}">
-                        <a class="nav-link" href="{{ url('verification') }}">
-                            <i class="fas fa-qrcode"></i>
-                            <span>Halaman Verifikasi</span>
+                            <span>Halaman Apotek</span>
                         </a>
                     </li>
                 </ul>
