@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Models\Obat;
 use App\Http\Controllers\ObatController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,3 +22,7 @@ Route::get('/dashboard', function(){
 Route::get('/', function(){
     return view('obat.add');
 });
+Route::get('/login', function(){
+    return view('login');
+});
+Route::post('/user/login', [UserController::class, 'login']);
