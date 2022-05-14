@@ -74,12 +74,6 @@
                                         </button>
                                     </div>
                                 </form>
-                                {{-- <a href="{{ url('auth/callback') }}" class="text-decoration-none text-white">
-                                <button class="btn btn-lg btn-block btn-danger" type="submit">
-                                    <i class="fab fa-google me-2"></i>
-                                    Sign in with google
-                                </button>
-                                </a> --}}
                             </div>
                         </div>
                     </div>
