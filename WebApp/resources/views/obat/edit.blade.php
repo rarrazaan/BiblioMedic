@@ -29,7 +29,7 @@
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label">aturanPakai</label>
+                            <label class="col-sm-2 col-form-label">aturan Pakai</label>
                             <div class="col-sm-10">
                                 <textarea class="form-control" name="aturanPakai"></textarea>
                             </div>
