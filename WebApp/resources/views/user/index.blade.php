@@ -26,28 +26,23 @@
 
 <div class="section-body">
     <div class="card">
-        <div class="card-header d-flex justify-content-between">
-            <a href="{{ url('obat/create') }}" class="btn btn-icon icon-left btn-primary">
-                <i class="fa fa-plus"></i>
-                &nbsp; Tambah Data Obat
-            </a>
-        </div>
         <div class="card-body">
             <div class="table-responsive">
                 <table id="dataTable" class="table-bordered table-md table">
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Nama Obat</th>
-                            <th>Komposisi</th>
-                            <th>Khasiat</th>
-                            <th>Aturan Pakai</th>
-                            <th>Peringatan</th>
+                            <th>Nama</th>
+                            <th>Username</th>
+                            <th>Email</th>
+                            <th>No Telepon</th>
+                            <th>Role</th>
+                            <th>Status</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($obats as $key => $obat)
+                        @foreach ($users as $key => $user)
                         <tr>
                             <td>{{ $key + 1 }}</td>
                             {{-- <td>
@@ -58,11 +53,12 @@
                             <img width="100" src="{{ $obat->photo }}" alt="Photo {{ $obat->name }}">
                             @endif
                             </td> --}}
-                            <td>{{ $obat->nama_obat }}</td>
-                            <td>{{ $obat->komposisi }}</td>
-                            <td>{{ $obat->khasiat }}</td>
-                            <td>{{ $obat->aturanPakai }}</td>
-                            <td>{{ $obat->peringatan }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->username }}</td>
+                            <td>{{ $user->email }}</td>
+                            <td>{{ $user->telp }}</td>
+                            <td>{{ $user->role }}</td>
+                            <td>{{ $user->status }}</td>
                             <td>
                                 <a href="#" class="btn btn-outline-primary">Detail</a>
                             </td>

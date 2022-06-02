@@ -26,43 +26,27 @@
 
 <div class="section-body">
     <div class="card">
-        <div class="card-header d-flex justify-content-between">
-            <a href="{{ url('obat/create') }}" class="btn btn-icon icon-left btn-primary">
-                <i class="fa fa-plus"></i>
-                &nbsp; Tambah Data Obat
-            </a>
-        </div>
         <div class="card-body">
             <div class="table-responsive">
                 <table id="dataTable" class="table-bordered table-md table">
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Nama Obat</th>
-                            <th>Komposisi</th>
-                            <th>Khasiat</th>
-                            <th>Aturan Pakai</th>
-                            <th>Peringatan</th>
+                            <th>Nama Apotek</th>
+                            <th>Alamat</th>
+                            <th>Jam Operasi</th>
+                            <th>No Telepon</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($obats as $key => $obat)
+                        @foreach ($apoteks as $key => $apotek)
                         <tr>
                             <td>{{ $key + 1 }}</td>
-                            {{-- <td>
-                                @if(!$obat->photo)
-                                <img width="100" src="{{ 'https://i.pravatar.cc/300?nocache='. microtime() }}"
-                            alt="Photo Profile">
-                            @else
-                            <img width="100" src="{{ $obat->photo }}" alt="Photo {{ $obat->name }}">
-                            @endif
-                            </td> --}}
-                            <td>{{ $obat->nama_obat }}</td>
-                            <td>{{ $obat->komposisi }}</td>
-                            <td>{{ $obat->khasiat }}</td>
-                            <td>{{ $obat->aturanPakai }}</td>
-                            <td>{{ $obat->peringatan }}</td>
+                            <td>{{ $apotek->name }}</td>
+                            <td>{{ $apotek->address }}</td>
+                            <td>{{ $apotek->jam_operasi }}</td>
+                            <td>{{ $apotek->telp }}</td>
                             <td>
                                 <a href="#" class="btn btn-outline-primary">Detail</a>
                             </td>

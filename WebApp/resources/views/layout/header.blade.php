@@ -75,7 +75,7 @@
                     </li>
 
                     <li class="{{ Request::is('user') ? 'active' : '' }}">
-                        <a class="nav-link" href="{{ url('user') }}">
+                        <a class="nav-link" href="{{ url('/user') }}">
                             <i class="fas fa-users"></i>
                             <span>Daftar Pengguna</span>
                         </a>
@@ -89,8 +89,8 @@
                         </a>
                     </li>
 
-                    <li class="{{ Request::is('transaction') ? 'active' : '' }}">
-                        <a class="nav-link" href="{{ url('transaction') }}">
+                    <li class="{{ Request::is('apotek') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ url('apotek') }}">
                             <i class="fas fa-book"></i>
                             <span>Halaman Apotek</span>
                         </a>

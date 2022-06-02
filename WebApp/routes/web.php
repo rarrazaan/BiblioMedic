@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Obat;
 use App\Http\Controllers\ObatController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ApotekController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,16 +17,9 @@ use App\Http\Controllers\UserController;
 |
 */
 Route::resource('obat',ObatController::class);
-Route::get('/dashboard', function(){
-    return view('dashboard');
-});
-Route::get('/add', function(){
-    return view('obat.add');
-});
-Route::get('/edit', function(){
-    return view('obat.edit');
-});
+Route::resource('apotek',ApotekController::class);
 Route::get('/login', function(){
     return view('login');
 });
+Route::get('/user', [UserController::class, 'index']);
 Route::post('/user/login', [UserController::class, 'login']);

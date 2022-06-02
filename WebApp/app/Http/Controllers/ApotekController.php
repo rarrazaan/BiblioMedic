@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Apotek;
 use Illuminate\Http\Request;
-use App\Models\Obat;
 
-class ObatController extends Controller
+class ApotekController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,10 +14,10 @@ class ObatController extends Controller
      */
     public function index()
     {
-        $title = 'Data Obat';
-        $obats = Obat::paginate();
+        $title = 'Data Apotek';
+        $apoteks = Apotek::paginate();
 
-        return view('obat.index', compact('title', 'obats'));
+        return view('apotek.index', compact('title', 'apoteks'));
     }
 
     /**
@@ -27,7 +27,7 @@ class ObatController extends Controller
      */
     public function create()
     {
-        return view('obat.add');
+        //
     }
 
     /**
@@ -44,10 +44,10 @@ class ObatController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Apotek  $apotek
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Apotek $apotek)
     {
         //
     }
@@ -55,22 +55,22 @@ class ObatController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Apotek  $apotek
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Apotek $apotek)
     {
-        return view('obat.edit');
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Apotek  $apotek
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Apotek $apotek)
     {
         //
     }
@@ -78,10 +78,10 @@ class ObatController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Apotek  $apotek
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Apotek $apotek)
     {
         //
     }

@@ -20,4 +20,12 @@ class UserController extends Controller
 
         return redirect('dashboard');
     }
+
+    public function index()
+    {
+        $title = 'Data User';
+        $users = User::paginate();
+
+        return view('user.index', compact('title', 'users'));
+    }
 }
