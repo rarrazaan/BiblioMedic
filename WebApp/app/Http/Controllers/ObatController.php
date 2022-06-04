@@ -27,6 +27,8 @@ class ObatController extends Controller
      */
     public function create()
     {
+        $title = 'Tambah Data Obat';
+
         return view('obat.add');
     }
 
@@ -38,7 +40,10 @@ class ObatController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validated();
+
+        Obat::create($data);
+        return redirect('/obat')->with('success', 'Data obat berhasil ditambahkan');
     }
 
     /**
@@ -49,7 +54,8 @@ class ObatController extends Controller
      */
     public function show($id)
     {
-        //
+        $obat = Obat::findOrFail($id);
+        return response()->json(['data' => $obat]);
     }
 
     /**
@@ -60,7 +66,16 @@ class ObatController extends Controller
      */
     public function edit($id)
     {
-        return view('obat.edit');
+        $title = 'Edit Obat';
+
+        $data = Obat::find($id);
+
+        $coordinate = [(float) $data->longitude, (float) $data->latitude];
+        $coordinate_str = $data->latitude.','.$data->longitude;
+
+        return view('obat.edit', compact(
+            'title', 'data',
+        ));
     }
 
     /**
@@ -72,7 +87,10 @@ class ObatController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->validated();
+
+        Obat::where('id', $id)->update($data);
+        return redirect()->back()->with('success', 'Data obat berhasil di update');
     }
 
     /**
@@ -83,6 +101,7 @@ class ObatController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Obat::destroy($id);
+        return redirect('/obat')->with('success', 'Data obat berhasil dihapus');
     }
 }

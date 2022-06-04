@@ -27,7 +27,9 @@ class ApotekController extends Controller
      */
     public function create()
     {
-        //
+        $title = 'Tambah Data Apotek';
+
+        return view('apotek.add');
     }
 
     /**
@@ -38,7 +40,10 @@ class ApotekController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validated();
+
+        Apotek::create($data);
+        return redirect('/apotek')->with('success', 'Data apotek berhasil ditambahkan');
     }
 
     /**
@@ -49,7 +54,8 @@ class ApotekController extends Controller
      */
     public function show(Apotek $apotek)
     {
-        //
+        $apotek = Apotek::findOrFail($id);
+        return response()->json(['data' => $apotek]);
     }
 
     /**
@@ -60,7 +66,16 @@ class ApotekController extends Controller
      */
     public function edit(Apotek $apotek)
     {
-        //
+        $title = 'Edit Apotek';
+
+        $data = Apotek::find($id);
+
+        $coordinate = [(float) $data->longitude, (float) $data->latitude];
+        $coordinate_str = $data->latitude.','.$data->longitude;
+
+        return view('apotek.edit', compact(
+            'title', 'data',
+        ));
     }
 
     /**
@@ -72,7 +87,10 @@ class ApotekController extends Controller
      */
     public function update(Request $request, Apotek $apotek)
     {
-        //
+        $data = $request->validated();
+
+        Apotek::where('id', $id)->update($data);
+        return redirect()->back()->with('success', 'Data apotek berhasil di update');
     }
 
     /**
@@ -83,6 +101,7 @@ class ApotekController extends Controller
      */
     public function destroy(Apotek $apotek)
     {
-        //
+        Apotek::destroy($id);
+        return redirect('/apotek')->with('success', 'Data apotek berhasil dihapus');
     }
 }

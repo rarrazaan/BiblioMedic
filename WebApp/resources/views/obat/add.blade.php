@@ -9,7 +9,8 @@
         <div class="col-md-12">
             <div class="card">
                 <div style="width: 100%; margin: 10px" id='myDiv'>
-                    <form>
+                    <form action="{{ url('obat') }}" method="post" enctype="multipart/form-data">
+                        @csrf
                         <div class="row mb-3">
                             <label class="col-sm-2 col-form-label">nama obat</label>
                             <div class="col-sm-10">
