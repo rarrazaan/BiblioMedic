@@ -11,7 +11,7 @@
                 <div style="width: 100%; margin: 10px" id='myDiv'>
                     <form>
                         <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label">nama obat</label>
+                            <label class="col-sm-2 col-form-label">nama apotek</label>
                             <div class="col-sm-10">
                                 <p></p>
                             </div>

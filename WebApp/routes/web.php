@@ -5,6 +5,7 @@ use App\Models\Obat;
 use App\Http\Controllers\ObatController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ApotekController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,8 +19,10 @@ use App\Http\Controllers\ApotekController;
 */
 Route::resource('obat',ObatController::class);
 Route::resource('apotek',ApotekController::class);
-Route::get('/login', function(){
+Route::get('/', function(){
     return view('login');
 });
 Route::get('/user', [UserController::class, 'index']);
 Route::post('/user/login', [UserController::class, 'login']);
+Route::get('dashboard', [DashboardController::class, 'index']);
+Route::get('/user/{id}', [UserController::class, 'detail']);

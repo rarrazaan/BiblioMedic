@@ -26,6 +26,12 @@
 
 <div class="section-body">
     <div class="card">
+        <div class="card-header d-flex justify-content-between">
+            <a href="{{ url('apotek/create') }}" class="btn btn-icon icon-left btn-primary">
+                <i class="fa fa-plus"></i>
+                &nbsp; Tambah Data Apotek
+            </a>
+        </div>
         <div class="card-body">
             <div class="table-responsive">
                 <table id="dataTable" class="table-bordered table-md table">

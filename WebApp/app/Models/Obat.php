@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Obat extends Model
 {
     use HasFactory;
+    public $fillable =
+        [
+            'nama_obat', 'image', 'komposisi',
+            'khasiat', 'peringatan', 'aturanPakai',
+        ];
 }

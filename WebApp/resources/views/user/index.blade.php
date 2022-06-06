@@ -32,6 +32,7 @@
                     <thead>
                         <tr>
                             <th>#</th>
+                            <th>Photo</th>
                             <th>Nama</th>
                             <th>Username</th>
                             <th>Email</th>
@@ -45,14 +46,14 @@
                         @foreach ($users as $key => $user)
                         <tr>
                             <td>{{ $key + 1 }}</td>
-                            {{-- <td>
-                                @if(!$obat->photo)
+                            <td>
+                                @if(!$user->photo)
                                 <img width="100" src="{{ 'https://i.pravatar.cc/300?nocache='. microtime() }}"
-                            alt="Photo Profile">
-                            @else
-                            <img width="100" src="{{ $obat->photo }}" alt="Photo {{ $obat->name }}">
-                            @endif
-                            </td> --}}
+                                    alt="Photo Profile">
+                                @else
+                                <img width="100" src="{{ $user->photo }}" alt="Photo {{ $obat->name }}">
+                                @endif
+                            </td>
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->username }}</td>
                             <td>{{ $user->email }}</td>
@@ -60,7 +61,7 @@
                             <td>{{ $user->role }}</td>
                             <td>{{ $user->status }}</td>
                             <td>
-                                <a href="#" class="btn btn-outline-primary">Detail</a>
+                                <a href="/user/{{ $user->id }}" class="btn btn-outline-primary">Detail</a>
                             </td>
                         </tr>
                         @endforeach

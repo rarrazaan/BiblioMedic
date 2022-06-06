@@ -29,7 +29,7 @@ class ApotekController extends Controller
     {
         $title = 'Tambah Data Apotek';
 
-        return view('apotek.add');
+        return view('apotek.add', compact('title'));
     }
 
     /**
