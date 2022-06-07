@@ -38,6 +38,7 @@
                     <thead>
                         <tr>
                             <th>#</th>
+                            <th>Gambar Apotek</th>
                             <th>Nama Apotek</th>
                             <th>Alamat</th>
                             <th>Jam Operasi</th>
@@ -46,15 +47,31 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($apoteks as $key => $apotek)
+                        @foreach ($apoteks as $key => $apotek) 
                         <tr>
                             <td>{{ $key + 1 }}</td>
-                            <td>{{ $apotek->name }}</td>
-                            <td>{{ $apotek->address }}</td>
-                            <td>{{ $apotek->jam_operasi }}</td>
-                            <td>{{ $apotek->telp }}</td>
                             <td>
-                                <a href="#" class="btn btn-outline-primary">Detail</a>
+                                @if(!$apotek->picture)
+                                <img width="100" src="{{ 'https://i.pravatar.cc/300?nocache='. microtime() }}"
+                                    alt="Photo Profile">
+                                @else
+                                <img width="100" src="{{ $apotek->picture }}" alt="picture {{ $apotek->name }}">
+                                @endif
+                            </td>
+                            <td>{{ $apotek->name }}</td>
+                            <td style="width: 40%">{{ $apotek->address }}</td>
+                            <td style="width: 40%">{{ $apotek->jam_operasi}}</td>
+                            <td style="width: 40%">{{ $apotek->telp }}</td>
+                            <td>
+                                <a href="#" data-id="{{ $apotek->id }}" class="detail btn btn-outline-primary">
+                                    Detail
+                                </a>
+                                <a href="apotek/{{ $apotek->id }}/edit" class="btn btn-primary">
+                                    Edit
+                                </a>
+                                <a href="#" data-id="{{ $apotek->id }}" data-name="{{ $apotek->name }}"
+                                    class="btn btn-danger delete" data-toggle="modal" data-target="#deleteModal">Hapus
+                                </a>
                             </td>
                         </tr>
                         @endforeach
