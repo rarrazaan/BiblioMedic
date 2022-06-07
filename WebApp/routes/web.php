@@ -28,3 +28,5 @@ Route::get('dashboard', [DashboardController::class, 'index']);
 Route::get('/user/{id}', [UserController::class, 'detail']);
 Route::get('obat/{id}/edit', 'ObatController@edit');
 Route::put('obat/{id}/edit', 'ObatController@update');
+Route::get('apotek/{{ $apotek->id }}/edit', 'ApotekController@edit');
+Route::get('apotek/{{ $apotek->id }}/edit', 'ApotekController@update');
