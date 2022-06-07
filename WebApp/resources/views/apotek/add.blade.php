@@ -26,7 +26,7 @@
                     <div class="card-body d-flex justify-content-center">
                         <div id="image-preview" class="image-preview" style="height: 250px">
                             <label for="image-upload" id="image-label">Choose File</label>
-                            <input type="file" accept="image/*" name="background" id="image-upload" />
+                            <input type="file" accept="image/*" name="picture" id="image-upload" />
                         </div>
                     </div>
                 </div>
@@ -38,37 +38,30 @@
                         <div class="row mb-3">
                             <label class="col-sm-2 col-form-label">nama apotek</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" name="nama_apotek">
+                                <input type="text" class="form-control" name="name">
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label">komposisi</label>
+                            <label class="col-sm-2 col-form-label">Alamat</label>
                             <div class="col-sm-10">
-                                <textarea class="form-control" name="komposisi"></textarea>
+                                <textarea class="form-control" name="address"></textarea>
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label">khasiat</label>
+                            <label class="col-sm-2 col-form-label">Jam Operasi</label>
                             <div class="col-sm-10">
-                                <textarea class="form-control" name="komposisi"></textarea>
+                                <input type="text" class="form-control" name="jam_operasi">
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label">aturan Pakai</label>
+                            <label class="col-sm-2 col-form-label">No Telepon</label>
                             <div class="col-sm-10">
-                                <textarea class="form-control" name="aturanPakai"></textarea>
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label">peringatan</label>
-                            <div class="col-sm-10">
-                                <textarea class="form-control" name="peringatan"></textarea>
+                                <input type="number" class="form-control" name="telp">
                             </div>
                         </div>
                         <div class="text-center">
                             <button type="submit" class="btn btn-success">Simpan</button>
                         </div>
-
                     </div>
                 </div>
             </div>
