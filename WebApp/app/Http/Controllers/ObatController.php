@@ -40,13 +40,13 @@ class ObatController extends Controller
     {
         $title = 'Edit Obat';
 
-        $data = Obat::find($id);
+        $id = Obat::find($id);
 
-        $coordinate = [(float) $data->longitude, (float) $data->latitude];
-        $coordinate_str = $data->latitude.','.$data->longitude;
+        $coordinate = [(float) $id->longitude, (float) $id->latitude];
+        $coordinate_str = $id->latitude.','.$id->longitude;
 
         return view('obat.edit', compact(
-            'title', 'data',
+            'title', 'id',
         ));
     }
 
