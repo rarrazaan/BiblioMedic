@@ -68,7 +68,7 @@ class ApotekController extends Controller
     {
         $title = 'Edit Apotek';
 
-        $data = Apotek::find($id);
+        $data = Apotek::find($apotek);
 
         $coordinate = [(float) $data->longitude, (float) $data->latitude];
         $coordinate_str = $data->latitude.','.$data->longitude;
