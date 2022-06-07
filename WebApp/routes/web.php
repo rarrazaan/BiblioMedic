@@ -26,3 +26,5 @@ Route::get('/user', [UserController::class, 'index']);
 Route::post('/user/login', [UserController::class, 'login']);
 Route::get('dashboard', [DashboardController::class, 'index']);
 Route::get('/user/{id}', [UserController::class, 'detail']);
+Route::get('obat/{id}/edit', 'ObatController@edit');
+Route::put('obat/{id}/edit', 'ObatController@update');
