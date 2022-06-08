@@ -21,7 +21,7 @@ class ObatSeeder extends Seeder
                 'komposisi' => 'Succus Liquiritiae, Ammonium Chloride, Ephedrine HCl, Paracetamol, Chlorpheniramine Maleate, Alcohol.',
                 'khasiat' => 'Meredakan batuk yang disertai gejala-gejala flu seperti demam, sakit kepala, hidung tersumbat, dan bersin-bersin.',
                 'aturanPakai' => 'Anak-anak (6-12 tahun): 5 ml 1-4 x sehari, Dewasa (diatas 12 tahun): 15 ml 1 x 4 sehari.',
-                'peringatan' => 'Memiliki efek samping: Mual, Muntah, Sakit perut, Mulut kering, Mengantuk.',
+                'peringatan' => 'Memiliki efek samping: Mual, muntah, sakit perut, mulut kering, mengantuk.',
             ],
 
             [

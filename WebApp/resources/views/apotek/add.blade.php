@@ -36,7 +36,7 @@
                     <div style="width: 100%; margin: 10px" id='myDiv'>
 
                         <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label">nama apotek</label>
+                            <label class="col-sm-2 col-form-label">Nama Apotek</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" name="name">
                             </div>
@@ -54,7 +54,7 @@
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label">No Telepon</label>
+                            <label class="col-sm-2 col-form-label">No. Telepon</label>
                             <div class="col-sm-10">
                                 <input type="number" class="form-control" name="telp">
                             </div>
