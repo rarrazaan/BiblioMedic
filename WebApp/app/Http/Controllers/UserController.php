@@ -28,9 +28,19 @@ class UserController extends Controller
 
         return view('user.index', compact('title', 'users'));
     }
+
     public function detail($id){
         $user = User::find($id);
         $title = 'User Detail';
+
+        return view('user.detail', compact('title', 'user'));
+    }
+
+    public function profile(){
+        $id = request()->session()->get('user')->id;
+
+        $user = User::findOrFail($id);
+        $title = 'Profile User';
 
         return view('user.detail', compact('title', 'user'));
     }

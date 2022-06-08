@@ -24,7 +24,10 @@ class ObatController extends Controller
 
     public function store(ObatRequest $request)
     {
+        // ddd($request);
+        
         $data = $request->validated();
+        $data['image'] = $request->file('image')->store('obat-images');
 
         Obat::create($data);
         return redirect('/obat')->with('success', 'Data obat berhasil ditambahkan');

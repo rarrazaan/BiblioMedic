@@ -22,11 +22,18 @@ Route::resource('apotek',ApotekController::class);
 Route::get('/', function(){
     return view('login');
 });
+Route::get('dashboard', [DashboardController::class, 'index']);
+
 Route::get('/user', [UserController::class, 'index']);
 Route::post('/user/login', [UserController::class, 'login']);
+<<<<<<< Updated upstream
 Route::get('dashboard', [DashboardController::class, 'index']);
 Route::get('/user/{id}', [UserController::class, 'detail']);
 Route::get('obat/{id}/edit', 'ObatController@edit');
 Route::put('obat/{id}/edit', 'ObatController@update');
 Route::get('apotek/{{ $apotek->id }}/edit', 'ApotekController@edit');
 Route::get('apotek/{{ $apotek->id }}/edit', 'ApotekController@update');
+=======
+Route::get('/user/profile', [UserController::class, 'profile']);
+Route::get('/user/{id}', [UserController::class, 'detail']);
+>>>>>>> Stashed changes
