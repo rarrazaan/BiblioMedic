@@ -58,10 +58,10 @@
                                 <img width="100" src="{{ $apotek->picture }}" alt="picture {{ $apotek->name }}">
                                 @endif
                             </td>
-                            <td>{{ $apotek->name }}</td>
-                            <td style="width: 40%">{{ $apotek->address }}</td>
-                            <td style="width: 40%">{{ $apotek->jam_operasi}}</td>
-                            <td style="width: 40%">{{ $apotek->telp }}</td>
+                            <td style="width: 20%">{{ $apotek->name }}</td>
+                            <td style="width: 30%">{{ $apotek->address }}</td>
+                            <td style="width: 10%">{{ $apotek->jam_operasi}}</td>
+                            <td style="width: 10%">{{ $apotek->telp }}</td>
                             <td>
                                 <a href="#" data-id="{{ $apotek->id }}" class="detail btn btn-outline-primary">
                                     Detail
