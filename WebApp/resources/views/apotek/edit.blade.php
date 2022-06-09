@@ -14,7 +14,7 @@
 </div>
 @endif
 
-<form action="apotek/{{ $apotek->id }}/edit" method="post" enctype="multipart/form-data">
+<form action="apotek/id/edit. $id" method="post" enctype="multipart/form-data">
     @csrf
     <div class="section-body">
         <div class="row">
@@ -56,7 +56,7 @@
                         <div class="row mb-3">
                             <label class="col-sm-2 col-form-label">No Telepon</label>
                             <div class="col-sm-10">
-                                <input type="number" class="form-control" name="telp" value="{{old('telp') ?? $id -> telp}}">
+                                <input type="text" class="form-control" name="telp" value="{{old('telp') ?? $id -> telp}}">
                             </div>
                         </div>
                         <div class="text-center">
