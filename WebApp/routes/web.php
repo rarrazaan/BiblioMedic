@@ -28,3 +28,5 @@ Route::get('/user', [UserController::class, 'index']);
 Route::post('/user/login', [UserController::class, 'login']);
 Route::get('/user/profile', [UserController::class, 'profile']);
 Route::get('/user/{id}', [UserController::class, 'detail']);
+Route::get('obat/{id}/detail', [ObatController::class, 'detail']);
+Route::get('apotek/{id}/detail', [ApotekController::class, 'detail']);
