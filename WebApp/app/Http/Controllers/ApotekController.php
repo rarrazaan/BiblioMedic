@@ -43,7 +43,7 @@ class ApotekController extends Controller
         // ddd($request);
         
         $data = $request->validated();
-        $data['picture'] = $request->file('image')->store('apotek-images');
+        $data['picture'] = $request->file('picture')->store('apotek-picture');
 
         Apotek::create($data);
         return redirect('/apotek')->with('success', 'Data apotek berhasil ditambahkan');
@@ -105,5 +105,13 @@ class ApotekController extends Controller
     {
         Apotek::destroy($id);
         return redirect('/apotek')->with('success', 'Data apotek berhasil dihapus');
+    }
+    
+    public function detail($id)
+    {
+        $id = Apotek::find($id);
+        $title = 'Apotek Detail';
+
+        return view('apotek.detail', compact('title', 'id'));
     }
 }
