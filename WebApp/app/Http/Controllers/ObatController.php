@@ -66,4 +66,12 @@ class ObatController extends Controller
         Obat::destroy($id);
         return redirect('/obat')->with('success', 'Data obat berhasil dihapus');
     }
+    
+    public function detail($id)
+    {
+        $id = Obat::find($id);
+        $title = 'Obat Detail';
+
+        return view('obat.detail', compact('title', 'id'));
+    }
 }
