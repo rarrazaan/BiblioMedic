@@ -63,7 +63,7 @@
                             <td style="width: 10%">{{ $apotek->jam_operasi}}</td>
                             <td style="width: 10%">{{ $apotek->telp }}</td>
                             <td>
-                                <a href="#" data-id="{{ $apotek->id }}" class="detail btn btn-outline-primary">
+                                <a href="apotek/{{ $apotek->id }}/detail" data-id="{{ $apotek->id }}" class="detail btn btn-outline-primary">
                                     Detail
                                 </a>
                                 <a href="apotek/{{ $apotek->id }}/edit" class="btn btn-primary">
