@@ -56,7 +56,7 @@
                         <div class="row mb-3">
                             <label class="col-sm-2 col-form-label">No. Telepon</label>
                             <div class="col-sm-10">
-                                <input type="number" class="form-control" name="telp">
+                                <input type="text" class="form-control" name="telp">
                             </div>
                         </div>
                         <div class="text-center">
