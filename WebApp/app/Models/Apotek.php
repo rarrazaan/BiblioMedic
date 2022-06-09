@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Apotek extends Model
 {
     use HasFactory;
+    public $fillable =
+        [
+            'name', 'address', 'jam_operasi', 'picture', 'telp',
+        ];
 }
