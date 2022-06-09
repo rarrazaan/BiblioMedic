@@ -60,7 +60,7 @@
                             <td style="width: 20%">{{ $obat->nama_obat }}</td>
                             <td style="width: 40%">{{ $obat->komposisi }}</td>
                             <td>
-                                <a href="#" data-id="{{ $obat->id }}" class="detail btn btn-outline-primary">
+                                <a href="obat/{{ $obat->id }}/detail" data-id="{{ $obat->id }}" class="detail btn btn-outline-primary">
                                     Detail
                                 </a>
                                 <a href="obat/{{ $obat->id }}/edit" class="btn btn-primary">
