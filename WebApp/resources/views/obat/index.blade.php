@@ -91,7 +91,7 @@
 <div class="modal fade" id="detailModal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <h3 class="mt-4 mb-3 text-center" id="titleModal">Detail Museum</h3>
+            <h3 class="mt-4 mb-3 text-center" id="titleModal">Detail Obat</h3>
             <div class="modal-body" style="padding-bottom: 5px">
                 <div class="form-group row mb-4">
                     <div class="col-sm-10">
