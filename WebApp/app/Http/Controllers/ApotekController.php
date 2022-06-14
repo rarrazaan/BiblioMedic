@@ -109,9 +109,11 @@ class ApotekController extends Controller
     
     public function detail($id)
     {
-        $id = Apotek::find($id);
+        $data = Apotek::find($id);
+        $coordinate = [(float) $data->longitude, (float) $data->latitude];
+        $coordinate_str = $data->latitude.','.$data->longitude;
         $title = 'Apotek Detail';
 
-        return view('apotek.detail', compact('title', 'id'));
+        return view('apotek.detail', compact('title', 'data', 'coordinate', 'coordinate_str'));
     }
 }

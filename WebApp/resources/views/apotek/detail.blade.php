@@ -14,27 +14,27 @@
         <div class="col-12">
             <div class="card ">
                 <div class="card-header">
-                    @if(!$id->picture)
+                    @if(!$data->picture)
                     <img class="rounded-circle profile-widget-picture img-fluid mx-auto" width="200"
                         src="{{ 'https://i.pravatar.cc/300?nocache='. microtime() }}" alt="Photo Profile">
                     @else
                     <img class="rounded-circle profile-widget-picture img-fluid mx-auto" width="200"
-                        src="{{ $id->picture }}" alt="Photo {{ $id->name }}">
+                        src="{{ $data->picture }}" alt="Photo {{ $data->name }}">
                     @endif
                 </div>
                 <div class="card-body">
                     <label>Nama Apotek</label>
-                    <p>{{ $id->name }}</p>
+                    <p>{{ $data->name }}</p>
                     <label>Alamat</label>
-                    <p>{{ $id->address }}</p>
+                    <p>{{ $data->address }}</p>
                     <label>Jam Operasi</label>
-                    <p>{{ $id->jam_operasi }}</p>
+                    <p>{{ $data->jam_operasi }}</p>
                     <label>No telepon</label>
-                    <p>{{ $id->telp }}</p>
+                    <p>{{ $data->telp }}</p>
                     <div class="form-group row mb-4">
                         <label class="col-sm-2 col-form-label">Lokasi</label>
                         <div class="col-sm-10">
-                            <div id='map' style='width: 100%; height: 500px;'></div>
+                            <div id="map" style="width: 100%; height: 260px"></div><br>
                         </div>
                     </div>
                 </div>
@@ -55,7 +55,7 @@
     const map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/mapbox/satellite-streets-v11',
-        center: [106.69972796989238, -6.238601629433243],
+        center: @json($coordinate),
         zoom: 10
     });
 
@@ -69,7 +69,9 @@
 
     map.addControl(geocoder);
 
-    let marker = null
+    let marker = new mapboxgl.Marker()
+            .setLngLat(@json($coordinate))
+            .addTo(map);
 
     map.on('click', function(e) {
         if(marker == null){
@@ -85,30 +87,3 @@
     });
 </script>
 @endsection
-{{-- @push('scripts')
-<script>
-    $(document).ready(function() {
-            $.ajax({
-                type: 'GET',
-                url: `{{ url('apotek') }}/${id}`,
-success: (res) => {
-mapboxgl.accessToken = 'pk.eyJ1Ijoic2hpbnlxMTEiLCJhIjoiY2ptY3d3OGxsMTA1dDNsbnl4OXJ1cHpkeCJ9.7fp_UEinaxDc5l8kOT6nBw';
-const map = new mapboxgl.Map({
-container: 'map',
-style: 'mapbox://styles/mapbox/satellite-streets-v11',
-center: [res.data.longitude, res.data.latitude],
-zoom: 16
-});
-
-const marker1 = new mapboxgl.Marker()
-.setLngLat([res.data.longitude, res.data.latitude])
-.addTo(map);
-
-},
-error: function(data) {
-console.log(data);
-}
-});
-});
-</script>
-@endpush --}}
