@@ -36,7 +36,7 @@
                     <div style="width: 100%; margin: 10px" id='myDiv'>
 
                         <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label">nama apotek</label>
+                            <label class="col-sm-2 col-form-label">Nama Apotek</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" name="name" value="{{old('name') ?? $id -> name}}">
                             </div>

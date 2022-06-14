@@ -35,31 +35,31 @@
                 <div class="card">
                     <div style="width: 100%; margin: 10px" id='myDiv'>
                         <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label">nama obat</label>
+                            <label class="col-sm-2 col-form-label">Nama Obat</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" name="nama_obat" value="{{old('nama_obat') ?? $id -> nama_obat}}">
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label">komposisi</label>
+                            <label class="col-sm-2 col-form-label">Komposisi</label>
                             <div class="col-sm-10">
                                 <textarea type="text" class="form-control" name="komposisi">"{{old('komposisi') ?? $id -> komposisi}}"</textarea>
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label">khasiat</label>
+                            <label class="col-sm-2 col-form-label">Khasiat</label>
                             <div class="col-sm-10">
-                                <textarea class="form-control" name="khasiat">"{{old('khasiati') ?? $id -> khasiat}}"</textarea>
+                                <textarea class="form-control" name="khasiat">"{{old('khasiat') ?? $id -> khasiat}}"</textarea>
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label">aturan Pakai</label>
+                            <label class="col-sm-2 col-form-label">Aturan Pakai</label>
                             <div class="col-sm-10">
                                 <textarea class="form-control" name="aturanPakai">"{{old('aturanPakai') ?? $id -> aturanPakai}}"</textarea>
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label">peringatan</label>
+                            <label class="col-sm-2 col-form-label">Peringatan</label>
                             <div class="col-sm-10">
                                 <textarea class="form-control" name="peringatan">"{{old('peringatan') ?? $id -> peringatan}}"</textarea>
                             </div>
