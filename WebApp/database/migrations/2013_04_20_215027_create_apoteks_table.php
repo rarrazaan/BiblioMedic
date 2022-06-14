@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('jam_operasi');
             $table->string('picture')->nullable();
             $table->string('telp');
+            $table->double('latitude')->nullable();
+            $table->double('longitude')->nullable();
             $table->timestamps();
         });
     }
