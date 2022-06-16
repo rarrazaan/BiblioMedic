@@ -9,6 +9,14 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
+    public function view_login(){
+        if (session()->get('user')){
+            return redirect('dashboard');
+        }
+
+        return view('login');
+    }
+
     public function login(Request $request){
         if(Auth::attempt(['username' => $request['username'], 'password' => $request['password']])) {
             $user = Auth::user();
@@ -43,5 +51,18 @@ class UserController extends Controller
         $title = 'Profile User';
 
         return view('user.detail', compact('title', 'user'));
+    }
+
+    public function logout(){
+        request()->session()->forget('user');
+        Auth::logout();
+
+        return redirect('/')->with('success', 'Sukses Melakukan Logout');
+    }
+    
+    public function update_role($id, $role){
+        User::where('id', $id)->update(['role' => $role]);
+        
+        return redirect()->back()->with('success', 'Sukses update role pengguna');
     }
 }

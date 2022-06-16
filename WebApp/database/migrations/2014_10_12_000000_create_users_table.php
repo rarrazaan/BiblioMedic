@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('email', 100)->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password', 100);
-            $table->string('status');
+            $table->enum('status', ['active', 'disabled'])->default('active');
             $table->string('telp');
             $table->string('photo', 100)->nullable();
             $table->enum('role', ['user', 'apoteker', 'superuser'])->default('user');

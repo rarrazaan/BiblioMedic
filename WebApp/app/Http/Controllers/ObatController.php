@@ -42,36 +42,25 @@ class ObatController extends Controller
     public function edit($id)
     {
         $title = 'Edit Obat';
-
-        $id = Obat::find($id);
-
-        $coordinate = [(float) $id->longitude, (float) $id->latitude];
-        $coordinate_str = $id->latitude.','.$id->longitude;
+        $data = Obat::find($id);
 
         return view('obat.edit', compact(
-            'title', 'id',
+            'title', 'data',
         ));
     }
 
     public function update(ObatRequest $request, $id)
     {
         $data = $request->validated();
+        $data['image'] = $request->file('image')->store('obat-images');
 
         Obat::where('id', $id)->update($data);
-        return redirect()->back()->with('success', 'Data obat berhasil di update');
+        return redirect('/obat')->with('success', 'Data obat berhasil diubah');
     }
 
     public function destroy($id)
     {
         Obat::destroy($id);
         return redirect('/obat')->with('success', 'Data obat berhasil dihapus');
-    }
-    
-    public function detail($id)
-    {
-        $id = Obat::find($id);
-        $title = 'Obat Detail';
-
-        return view('obat.detail', compact('title', 'id'));
     }
 }

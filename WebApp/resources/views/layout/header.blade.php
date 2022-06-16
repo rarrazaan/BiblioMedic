@@ -39,62 +39,62 @@
                     <li class="dropdown"><a href="#" data-toggle="dropdown"
                             class="nav-link dropdown-toggle nav-link-lg nav-link-user">
                             <img alt="image" src="{{ asset('assets/images/favicon.png') }}" class="rounded-circle mr-1">
-                            {{-- <div class="d-sm-none d-lg-inline-block">Hi, {{ session()->get('user')->name }}
-        </div> --}}
-        </a>
-        <div class="dropdown-menu dropdown-menu-right">
-            <a href="{{ url('/user/profile') }}" class="dropdown-item has-icon">
-                <i class="far fa-user"></i> Profile
-            </a>
-            <div class="dropdown-divider"></div>
-            <a href="{{ url('/user/logout') }}" class="dropdown-item has-icon text-danger">
-                <i class="fas fa-sign-out-alt"></i> Logout
-            </a>
-        </div>
-        </li>
-        </ul>
-        </nav>
-
-        <div class="main-sidebar">
-            <aside id="sidebar-wrapper">
-                <div class="sidebar-brand">
-                    <a href={{ url('dashboard') }}>Bibliomedic</a>
-                </div>
-
-                <div class="sidebar-brand sidebar-brand-sm">
-                    <a href="{{ url('dashboard') }}">BM</a>
-                </div>
-
-                <ul class="sidebar-menu">
-                    <li class="menu-header">Menu Utama</li>
-                    <li class="{{ Request::is('dashboard') ? 'active' : '' }}">
-                        <a class="nav-link" href="{{ url('/dashboard') }}">
-                            <i class="fas fa-chart-bar"></i>
-                            <span>Halaman Dashboard</span>
+                            <div class="d-sm-none d-lg-inline-block">Hi, {{ session()->get('user')->name }}
+                            </div>
                         </a>
-                    </li>
-
-                    <li class="{{ Request::is('user') ? 'active' : '' }}">
-                        <a class="nav-link" href="{{ url('/user') }}">
-                            <i class="fas fa-users"></i>
-                            <span>Daftar Pengguna</span>
-                        </a>
-                    </li>
-
-                    <li class="menu-header">Menu Obat</li>
-                    <li class="{{ Request::is('obat') ? 'active' : '' }}">
-                        <a class="nav-link" href="{{ url('obat') }}">
-                            <i class="fas fa-building"></i>
-                            <span>Halaman Obat</span>
-                        </a>
-                    </li>
-
-                    <li class="{{ Request::is('apotek') ? 'active' : '' }}">
-                        <a class="nav-link" href="{{ url('apotek') }}">
-                            <i class="fas fa-book"></i>
-                            <span>Halaman Apotek</span>
-                        </a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a href="{{ url('/user/profile') }}" class="dropdown-item has-icon">
+                                <i class="far fa-user"></i> Profile
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="{{ url('/user/logout') }}" class="dropdown-item has-icon text-danger">
+                                <i class="fas fa-sign-out-alt"></i> Logout
+                            </a>
+                        </div>
                     </li>
                 </ul>
-            </aside>
-        </div>
+            </nav>
+
+            <div class="main-sidebar">
+                <aside id="sidebar-wrapper">
+                    <div class="sidebar-brand">
+                        <a href={{ url('dashboard') }}>Bibliomedic</a>
+                    </div>
+
+                    <div class="sidebar-brand sidebar-brand-sm">
+                        <a href="{{ url('dashboard') }}">BM</a>
+                    </div>
+
+                    <ul class="sidebar-menu">
+                        <li class="menu-header">Menu Utama</li>
+                        <li class="{{ Request::is('dashboard') ? 'active' : '' }}">
+                            <a class="nav-link" href="{{ url('/dashboard') }}">
+                                <i class="fas fa-chart-bar"></i>
+                                <span>Halaman Dashboard</span>
+                            </a>
+                        </li>
+
+                        <li class="{{ Request::is('user') ? 'active' : '' }}">
+                            <a class="nav-link" href="{{ url('/user') }}">
+                                <i class="fas fa-users"></i>
+                                <span>Daftar Pengguna</span>
+                            </a>
+                        </li>
+
+                        <li class="menu-header">Menu Obat</li>
+                        <li class="{{ Request::is('obat') ? 'active' : '' }}">
+                            <a class="nav-link" href="{{ url('obat') }}">
+                                <i class="fas fa-building"></i>
+                                <span>Halaman Obat</span>
+                            </a>
+                        </li>
+
+                        <li class="{{ Request::is('apotek') ? 'active' : '' }}">
+                            <a class="nav-link" href="{{ url('apotek') }}">
+                                <i class="fas fa-book"></i>
+                                <span>Halaman Apotek</span>
+                            </a>
+                        </li>
+                    </ul>
+                </aside>
+            </div>

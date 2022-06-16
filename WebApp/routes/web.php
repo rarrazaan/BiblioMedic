@@ -19,14 +19,17 @@ use App\Http\Controllers\DashboardController;
 */
 Route::resource('obat',ObatController::class);
 Route::resource('apotek',ApotekController::class);
-Route::get('/', function(){
-    return view('login');
-});
+Route::get('/', [UserController::class, 'view_login']);
 Route::get('dashboard', [DashboardController::class, 'index']);
 
-Route::get('/user', [UserController::class, 'index']);
-Route::post('/user/login', [UserController::class, 'login']);
-Route::get('/user/profile', [UserController::class, 'profile']);
-Route::get('/user/{id}', [UserController::class, 'detail']);
+Route::group(['prefix' => 'user'], function () {
+    Route::get('/', [UserController::class, 'index']);
+    Route::post('/login', [UserController::class, 'login']);
+    Route::get('/profile', [UserController::class, 'profile']);
+    Route::get('/{id}', [UserController::class, 'detail']);
+    Route::get('/logout', [UserController::class, 'logout']);
+    Route::get('/update_role/{id}/{role}', [UserController::class, 'update_role']);
+});
+
 Route::get('obat/{id}/detail', [ObatController::class, 'detail']);
 Route::get('apotek/{id}/detail', [ApotekController::class, 'detail']);

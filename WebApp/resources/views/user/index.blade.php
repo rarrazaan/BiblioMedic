@@ -36,9 +36,7 @@
                             <th>Nama</th>
                             <th>Username</th>
                             <th>Email</th>
-                            <th>No Telepon</th>
                             <th>Role</th>
-                            <th>Status</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -57,9 +55,21 @@
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->username }}</td>
                             <td>{{ $user->email }}</td>
-                            <td>{{ $user->telp }}</td>
-                            <td>{{ $user->role }}</td>
-                            <td>{{ $user->status }}</td>
+                            <td>
+                                <div class="dropdown d-inline mr-2">
+                                    <button class="btn btn-primary dropdown-toggle" type="button"
+                                        id="dropdownRoleButton" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false">
+                                        {{ ucfirst(Str::replace('_', ' ', $user->role)) }}
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item"
+                                            href="{{ url('user/update_role/'.$user->id).'/user' }}">User</a>
+                                        <a class="dropdown-item"
+                                            href="{{ url('user/update_role/'.$user->id).'/superuser' }}">Super User</a>
+                                    </div>
+                                </div>
+                            </td>
                             <td>
                                 <a href="/user/{{ $user->id }}" class="btn btn-outline-primary">Detail</a>
                             </td>

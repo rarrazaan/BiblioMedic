@@ -18,7 +18,7 @@
     @csrf
     <div class="section-body">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <div class="card">
                     <div class="card-header">
                         <h5>Upload Foto Obat</h5>
@@ -31,7 +31,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-8">
                 <div class="card">
                     <div style="width: 100%; margin: 10px" id='myDiv'>
                         <div class="row mb-3">

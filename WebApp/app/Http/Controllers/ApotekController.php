@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ApotekRequest;
 use App\Models\Apotek;
+use App\Models\ObatApotek;
 
 class ApotekController extends Controller
 {
@@ -110,10 +111,12 @@ class ApotekController extends Controller
     public function detail($id)
     {
         $data = Apotek::find($id);
+        $obats = ObatApotek::where('apotek_id', $id)->get();
+
         $coordinate = [(float) $data->longitude, (float) $data->latitude];
         $coordinate_str = $data->latitude.','.$data->longitude;
         $title = 'Apotek Detail';
 
-        return view('apotek.detail', compact('title', 'data', 'coordinate', 'coordinate_str'));
+        return view('apotek.detail', compact('title', 'data', 'coordinate', 'coordinate_str', 'obats'));
     }
 }

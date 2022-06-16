@@ -38,7 +38,6 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Gambar Apotek</th>
                             <th>Nama Apotek</th>
                             <th>Alamat</th>
                             <th>Jam Operasi</th>
@@ -47,23 +46,16 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($apoteks as $key => $apotek) 
+                        @foreach ($apoteks as $key => $apotek)
                         <tr>
                             <td>{{ $key + 1 }}</td>
-                            <td>
-                                @if(!$apotek->picture)
-                                <img width="100" src="{{ 'https://i.pravatar.cc/300?nocache='. microtime() }}"
-                                    alt="Photo Profile">
-                                @else
-                                <img width="100" src="{{ $apotek->picture }}" alt="picture {{ $apotek->name }}">
-                                @endif
-                            </td>
                             <td style="width: 20%">{{ $apotek->name }}</td>
                             <td style="width: 30%">{{ $apotek->address }}</td>
                             <td style="width: 10%">{{ $apotek->jam_operasi}}</td>
                             <td style="width: 10%">{{ $apotek->telp }}</td>
                             <td>
-                                <a href="apotek/{{ $apotek->id }}/detail" data-id="{{ $apotek->id }}" class="detail btn btn-outline-primary">
+                                <a href="apotek/{{ $apotek->id }}/detail" data-id="{{ $apotek->id }}"
+                                    class="detail btn btn-outline-primary">
                                     Detail
                                 </a>
                                 <a href="apotek/{{ $apotek->id }}/edit" class="btn btn-primary">
@@ -117,4 +109,3 @@
         </div>
     </div>
 </div>
-

@@ -14,11 +14,12 @@
 </div>
 @endif
 
-<form action="obat/{id}/edit. $id" method="post" enctype="multipart/form-data">
+<form action="{{ url('obat/' . $data->id) }}" method="post" enctype="multipart/form-data">
     @csrf
+    @method('put')
     <div class="section-body">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <div class="card">
                     <div class="card-header">
                         <h5>Upload Foto Obat</h5>
@@ -26,42 +27,48 @@
                     <div class="card-body d-flex justify-content-center">
                         <div id="image-preview" class="image-preview" style="height: 250px">
                             <label for="image-upload" id="image-label">Choose File</label>
-                            <input type="file" accept="image/*" name="image" id="image-upload" value="{{old('image') ?? $id -> image}}" />
+                            <input type="file" accept="image/*" name="image" id="image-upload"
+                                value="{{old('image') ?? $data->image}}" />
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-8">
                 <div class="card">
                     <div style="width: 100%; margin: 10px" id='myDiv'>
                         <div class="row mb-3">
                             <label class="col-sm-2 col-form-label">Nama Obat</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" name="nama_obat" value="{{old('nama_obat') ?? $id -> nama_obat}}">
+                                <input type="text" class="form-control" name="nama_obat"
+                                    value="{{old('nama_obat') ?? $data->nama_obat}}">
                             </div>
                         </div>
                         <div class="row mb-3">
                             <label class="col-sm-2 col-form-label">Komposisi</label>
                             <div class="col-sm-10">
-                                <textarea type="text" class="form-control" name="komposisi">"{{old('komposisi') ?? $id -> komposisi}}"</textarea>
+                                <textarea type="text" class="form-control"
+                                    name="komposisi">{{old('komposisi') ?? $data->komposisi}}</textarea>
                             </div>
                         </div>
                         <div class="row mb-3">
                             <label class="col-sm-2 col-form-label">Khasiat</label>
                             <div class="col-sm-10">
-                                <textarea class="form-control" name="khasiat">"{{old('khasiat') ?? $id -> khasiat}}"</textarea>
+                                <textarea class="form-control"
+                                    name="khasiat">{{old('khasiat') ?? $data->khasiat}}</textarea>
                             </div>
                         </div>
                         <div class="row mb-3">
                             <label class="col-sm-2 col-form-label">Aturan Pakai</label>
                             <div class="col-sm-10">
-                                <textarea class="form-control" name="aturanPakai">"{{old('aturanPakai') ?? $id -> aturanPakai}}"</textarea>
+                                <textarea class="form-control"
+                                    name="aturanPakai">{{old('aturanPakai') ?? $data->aturanPakai}}</textarea>
                             </div>
                         </div>
                         <div class="row mb-3">
                             <label class="col-sm-2 col-form-label">Peringatan</label>
                             <div class="col-sm-10">
-                                <textarea class="form-control" name="peringatan">"{{old('peringatan') ?? $id -> peringatan}}"</textarea>
+                                <textarea class="form-control"
+                                    name="peringatan">{{old('peringatan') ?? $data->peringatan}}</textarea>
                             </div>
                         </div>
                         <div class="text-center">
