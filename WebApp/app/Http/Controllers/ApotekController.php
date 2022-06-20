@@ -8,11 +8,6 @@ use App\Models\ObatApotek;
 
 class ApotekController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $title = 'Data Apotek';
@@ -21,11 +16,6 @@ class ApotekController extends Controller
         return view('apotek.index', compact('title', 'apoteks'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         $title = 'Tambah Data apotek';
@@ -33,75 +23,60 @@ class ApotekController extends Controller
         return view('apotek.add', compact('title'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(ApotekRequest $request)
     {
         // ddd($request);
         
         $data = $request->validated();
+        $coordinate = explode(",", $data['coordinate']);
+
+        $data['latitude'] = $coordinate[0];
+        $data['longitude'] = $coordinate[1];
+        unset($data['coordinate']);
+
         $data['picture'] = $request->file('picture')->store('apotek-picture');
 
         Apotek::create($data);
         return redirect('/apotek')->with('success', 'Data apotek berhasil ditambahkan');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Apotek  $apotek
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         $apotek = Apotek::findOrFail($id);
         return response()->json(['apotek' => $apotek]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Apotek  $apotek
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         $title = 'Edit apotek';
 
-        $id = Apotek::find($id);
+        $apotek = Apotek::find($id);
 
-        $coordinate = [(float) $id->longitude, (float) $id->latitude];
-        $coordinate_str = $id->latitude.','.$id->longitude;
+        $coordinate = [(float) $apotek->longitude, (float) $apotek->latitude];
+        $coordinate_str = $apotek->latitude.','.$apotek->longitude;
 
         return view('apotek.edit', compact(
-            'title', 'id',
+            'title', 'apotek', 'coordinate', 'coordinate_str'
         ));
     }
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Apotek  $apotek
-     * @return \Illuminate\Http\Response
-     */
-    public function update(ApotektRequest $request, $id)
+
+    public function update(ApotekRequest $request, $id)
     {
         $data = $request->validated();
+        $coordinate = explode(",", $data['coordinate']);
+
+        $data['latitude'] = $coordinate[0];
+        $data['longitude'] = $coordinate[1];
+        unset($data['coordinate']);
+        
+        if(isset($data['picture'])) {
+            $data['picture'] = $request->file('picture')->store('apotek-images');
+        }
 
         Apotek::where('id', $id)->update($data);
-        return redirect()->back()->with('success', 'Data apotekt berhasil di update');
+        return redirect('/apotek')->with('success', 'Data apotek berhasil diubah');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Apotek  $apotek
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         Apotek::destroy($id);

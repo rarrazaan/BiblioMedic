@@ -14,9 +14,10 @@
 </div>
 @endif
 
-<form action="{{ url('obat/' . $data->id) }}" method="post" enctype="multipart/form-data">
+<form action="{{ url('ns/apoteker/obatapotek/' . $data->id) }}" method="post" enctype="multipart/form-data">
     @csrf
     @method('put')
+    <input type="hidden" name="apotek_id" value="{{ session()->get('user')->apotek_id }}">
     <div class="section-body">
         <div class="row">
             <div class="col-md-4">
@@ -52,31 +53,17 @@
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label">Komposisi</label>
+                            <label class="col-sm-2 col-form-label">Harga Satuan</label>
                             <div class="col-sm-10">
-                                <textarea type="text" class="form-control"
-                                    name="komposisi">{{old('komposisi') ?? $data->komposisi}}</textarea>
+                                <input type="number" class="form-control" name="harga"
+                                    value="{{old('harga') ?? $data->harga}}">
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label">Khasiat</label>
+                            <label class="col-sm-2 col-form-label">Quantity</label>
                             <div class="col-sm-10">
-                                <textarea class="form-control"
-                                    name="khasiat">{{old('khasiat') ?? $data->khasiat}}</textarea>
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label">Aturan Pakai</label>
-                            <div class="col-sm-10">
-                                <textarea class="form-control"
-                                    name="aturanPakai">{{old('aturanPakai') ?? $data->aturanPakai}}</textarea>
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label">Peringatan</label>
-                            <div class="col-sm-10">
-                                <textarea class="form-control"
-                                    name="peringatan">{{old('peringatan') ?? $data->peringatan}}</textarea>
+                                <input type="number" class="form-control" name="qty"
+                                    value="{{old('qty') ?? $data->qty}}">
                             </div>
                         </div>
                         <div class="text-center">

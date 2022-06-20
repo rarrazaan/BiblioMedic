@@ -15,8 +15,9 @@ return new class extends Migration
     {
         Schema::create('obat_apoteks', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('obat_id')->constrained();
             $table->foreignId('apotek_id')->nullable()->constrained('apoteks')->onDelete('set null');
+            $table->string('nama_obat');
+            $table->string('image')->nullable();
             $table->integer('harga');
             $table->integer('qty');
             $table->timestamps();

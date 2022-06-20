@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Apotek extends Model
 {
     use HasFactory;
-    public $fillable = ['name', 'address', 'jam_operasi', 'picture', 'telp'];
+    public $fillable = ['name', 'address', 'jam_operasi', 'picture', 'telp', 'longitude', 'latitude'];
     public function obat_apotek(){
         return $this->hasMany(ObatApotek::class, 'id', 'apotek_id');
     }

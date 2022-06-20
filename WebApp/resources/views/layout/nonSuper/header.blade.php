@@ -46,6 +46,12 @@
                             <a href="{{ url('/user/profile') }}" class="dropdown-item has-icon">
                                 <i class="far fa-user"></i> Profile
                             </a>
+                            @if(session()->get('user')->role == 'apoteker')
+                            <a href="/ns/apoteker/{{ session()->get('user')->apotek_id }}"
+                                class="dropdown-item has-icon">
+                                <i class="fas fa-building"></i> Profile Apotek
+                            </a>
+                            @endif
                             <div class="dropdown-divider"></div>
                             <a href="{{ url('/user/logout') }}" class="dropdown-item has-icon text-danger">
                                 <i class="fas fa-sign-out-alt"></i> Logout
@@ -73,25 +79,15 @@
                                 <span>Halaman Dashboard</span>
                             </a>
                         </li>
-
-                        <li class="{{ Request::is('user') ? 'active' : '' }}">
-                            <a class="nav-link" href="{{ url('/user') }}">
-                                <i class="fas fa-users"></i>
-                                <span>Daftar Pengguna</span>
-                            </a>
-                        </li>
-
-                        <li class="menu-header">Menu Obat</li>
                         <li class="{{ Request::is('obat') ? 'active' : '' }}">
-                            <a class="nav-link" href="{{ url('obat') }}">
+                            <a class="nav-link" href="{{ url('ns/obat') }}">
                                 <i class="fas fa-building"></i>
                                 <span>Halaman Obat</span>
                             </a>
                         </li>
 
-                        <li class="menu-header">Menu Apotek</li>
                         <li class="{{ Request::is('apotek') ? 'active' : '' }}">
-                            <a class="nav-link" href="{{ url('apotek') }}">
+                            <a class="nav-link" href="{{ url('ns/apotek') }}">
                                 <i class="fas fa-book"></i>
                                 <span>Halaman Apotek</span>
                             </a>

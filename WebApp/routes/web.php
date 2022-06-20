@@ -6,6 +6,8 @@ use App\Http\Controllers\ObatController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ApotekController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\NonSuperController;
+use App\Http\Controllers\ObatApotekController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,19 +19,36 @@ use App\Http\Controllers\DashboardController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::resource('obat',ObatController::class);
-Route::resource('apotek',ApotekController::class);
+
 Route::get('/', [UserController::class, 'view_login']);
 Route::get('dashboard', [DashboardController::class, 'index']);
-
 Route::group(['prefix' => 'user'], function () {
-    Route::get('/', [UserController::class, 'index']);
     Route::post('/login', [UserController::class, 'login']);
-    Route::get('/profile', [UserController::class, 'profile']);
-    Route::get('/{id}', [UserController::class, 'detail']);
     Route::get('/logout', [UserController::class, 'logout']);
-    Route::get('/update_role/{id}/{role}', [UserController::class, 'update_role']);
+    Route::get('/profile', [UserController::class, 'profile']);
+});
+Route::group(['prefix' => 'ns'], function () {
+    Route::get('/obat', [NonSuperController::class, 'obat']);
+    Route::get('/apotek', [NonSuperController::class, 'apotek']);
+    Route::get('/obat/{id}', [NonSuperController::class, 'obat_detail']);
+    Route::get('/apotek/{id}', [NonSuperController::class, 'apotek_detail']);
+    Route::group(['prefix' => 'apoteker'], function () {
+        Route::get('/{id}', [NonSuperController::class, 'apoteker_detail']);
+        Route::resource('obatapotek',ObatApotekController::class);
+    });
 });
 
-Route::get('obat/{id}/detail', [ObatController::class, 'detail']);
-Route::get('apotek/{id}/detail', [ApotekController::class, 'detail']);
+
+
+Route::middleware(['superuser'])->group(function () {
+    Route::resource('obat',ObatController::class);
+    Route::resource('apotek',ApotekController::class);
+    Route::group(['prefix' => 'user'], function () {
+        Route::get('/', [UserController::class, 'index']);
+        Route::get('/detail/{id}', [UserController::class, 'detail']);
+        Route::get('/update_role/{id}/{role}', [UserController::class, 'update_role']);
+    });
+    
+    Route::get('obat/{id}/detail', [ObatController::class, 'detail']);
+    Route::get('apotek/{id}/detail', [ApotekController::class, 'detail']);
+});

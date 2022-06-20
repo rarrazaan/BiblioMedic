@@ -71,7 +71,7 @@
                                 </div>
                             </td>
                             <td>
-                                <a href="/user/{{ $user->id }}" class="btn btn-outline-primary">Detail</a>
+                                <a href="/user/detail/{{ $user->id }}" class="btn btn-outline-primary">Detail</a>
                             </td>
                         </tr>
                         @endforeach

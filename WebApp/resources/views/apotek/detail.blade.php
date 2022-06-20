@@ -31,8 +31,8 @@
                     <img class="rounded-circle profile-widget-picture img-fluid mx-auto" width="200"
                         src="{{ 'https://i.pravatar.cc/300?nocache='. microtime() }}" alt="Photo Profile">
                     @else
-                    <img class="rounded-circle profile-widget-picture img-fluid mx-auto" width="200"
-                        src="{{ $data->picture }}" alt="Photo {{ $data->name }}">
+                    <img class="profile-widget-picture img-fluid mx-auto" width="200"
+                        src="{{ asset('storage/' . $data->picture) }}" alt="Photo {{ $data->name }}">
                     @endif
                 </div>
                 <div class="card-body">
@@ -51,6 +51,11 @@
     <div class="row">
         <div class="col-md-12">
             <div class="card">
+                <div class="card-header">
+                    <div class="aligns-items-center d-inline-block">
+                        <h1>Data Obat Apotek</h1>
+                    </div>
+                </div>
                 <div class="card-body">
                     <div class="table-responsive">
                         <table id="dataTable" class="table-bordered table-md table">
@@ -59,8 +64,8 @@
                                     <th>#</th>
                                     <th>Gambar Obat</th>
                                     <th>Nama Obat</th>
-                                    <th>Komposisi</th>
-                                    <th>Action</th>
+                                    <th>Harga Satuan</th>
+                                    <th>Quantity</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -76,20 +81,9 @@
                                             alt="Photo {{ $obat->name }}">
                                         @endif
                                     </td>
-                                    <td style="width: 20%">{{ $obat->nama_obat }}</td>
-                                    <td style="width: 40%">{{ $obat->komposisi }}</td>
-                                    <td>
-                                        <a href="#" data-id="{{ $obat->id }}" class="detail btn btn-outline-primary">
-                                            Detail
-                                        </a>
-                                        <a href="obat/{{ $obat->id }}/edit" class="btn btn-primary">
-                                            Edit
-                                        </a>
-                                        <a href="#" data-id="{{ $obat->id }}" data-name="{{ $obat->name }}"
-                                            class="btn btn-danger delete" data-toggle="modal"
-                                            data-target="#deleteModal">Hapus
-                                        </a>
-                                    </td>
+                                    <td style="width: 40%">{{ $obat->nama_obat }}</td>
+                                    <td style="width: 20%">{{ 'Rp' . number_format($obat->harga, 2, ',', '.') }}</td>
+                                    <td style="width: 20%">{{ $obat->qty }}</td>
                                 </tr>
                                 @endforeach
                             </tbody>
@@ -97,7 +91,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </div>
@@ -130,18 +123,5 @@
     let marker = new mapboxgl.Marker()
             .setLngLat(@json($coordinate))
             .addTo(map);
-
-    map.on('click', function(e) {
-        if(marker == null){
-            marker = new mapboxgl.Marker()
-                .setLngLat(e.lngLat)
-                .addTo(map);
-        } else {
-            marker.setLngLat(e.lngLat)
-        }
-
-        lk = e.lngLat
-        document.getElementById("coordinate").value = e.lngLat.lat+","+e.lngLat.lng;
-    });
 </script>
 @endsection

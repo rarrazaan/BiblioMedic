@@ -30,6 +30,7 @@ class ApotekRequest extends FormRequest
                 'address' => ['required', 'string'],
                 'jam_operasi' => ['required', 'string'],
                 'telp' => ['required', 'string'],
+                'coordinate' => ['required']
             ];
         }
         else {
@@ -37,8 +38,9 @@ class ApotekRequest extends FormRequest
                 'name' => ['string'],
                 'picture' => [],
                 'address' => ['required', 'string'],
-                'ajam_operasi' => ['required', 'string'],
+                'jam_operasi' => ['required', 'string'],
                 'telp' => ['required', 'string'],
+                'coordinate' => ['required']
             ];
         }
     }

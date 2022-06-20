@@ -23,9 +23,7 @@ class ObatController extends Controller
     }
 
     public function store(ObatRequest $request)
-    {
-        // ddd($request);
-        
+    {        
         $data = $request->validated();
         $data['image'] = $request->file('image')->store('obat-images');
 
@@ -52,8 +50,11 @@ class ObatController extends Controller
     public function update(ObatRequest $request, $id)
     {
         $data = $request->validated();
-        $data['image'] = $request->file('image')->store('obat-images');
 
+        if(isset($data['picture'])) {
+            $data['image'] = $request->file('image')->store('obat-images');        
+        }
+        
         Obat::where('id', $id)->update($data);
         return redirect('/obat')->with('success', 'Data obat berhasil diubah');
     }

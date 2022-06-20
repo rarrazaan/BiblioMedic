@@ -29,6 +29,15 @@ class UserController extends Controller
         return redirect('dashboard');
     }
 
+    public function detail($id){
+        $user = User::find($id);
+        $title = 'User Detail';
+
+        return view('user.profile', compact('title', 'user'));
+
+        return redirect('/')->with('success', 'Sukses Melakukan Logout');
+    }
+
     public function index()
     {
         $title = 'Data User';
@@ -37,11 +46,11 @@ class UserController extends Controller
         return view('user.index', compact('title', 'users'));
     }
 
-    public function detail($id){
-        $user = User::find($id);
-        $title = 'User Detail';
+    public function logout(){
+        request()->session()->forget('user');
+        Auth::logout();
 
-        return view('user.detail', compact('title', 'user'));
+        return redirect('/')->with('success', 'Sukses Melakukan Logout');
     }
 
     public function profile(){
@@ -50,14 +59,7 @@ class UserController extends Controller
         $user = User::findOrFail($id);
         $title = 'Profile User';
 
-        return view('user.detail', compact('title', 'user'));
-    }
-
-    public function logout(){
-        request()->session()->forget('user');
-        Auth::logout();
-
-        return redirect('/')->with('success', 'Sukses Melakukan Logout');
+        return view('user.profile', compact('title', 'user'));
     }
     
     public function update_role($id, $role){
