@@ -67,6 +67,8 @@
                                             href="{{ url('user/update_role/'.$user->id).'/user' }}">User</a>
                                         <a class="dropdown-item"
                                             href="{{ url('user/update_role/'.$user->id).'/superuser' }}">Super User</a>
+                                            <a class="dropdown-item"
+                                            href="{{ url('user/update_role/'.$user->id).'/apoteker' }}">Apoteker</a>
                                     </div>
                                 </div>
                             </td>

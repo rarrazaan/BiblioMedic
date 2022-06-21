@@ -71,7 +71,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h5>Pilih Lokasi Museum</h5>
+                        <h5>Pilih Lokasi Apotek</h5>
                     </div>
                     <div class="card-body">
                         <div id="map" style="width: 100%; height: 260px"></div><br>
