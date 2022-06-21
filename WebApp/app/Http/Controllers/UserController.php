@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\UserRequest;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -17,6 +18,14 @@ class UserController extends Controller
         return view('login');
     }
 
+    public function view_signup(){
+        if (session()->get('user')){
+            return redirect('dashboard');
+        }
+
+        return view('signup');
+    }
+
     public function login(Request $request){
         if(Auth::attempt(['username' => $request['username'], 'password' => $request['password']])) {
             $user = Auth::user();
@@ -27,6 +36,15 @@ class UserController extends Controller
         }
 
         return redirect('dashboard');
+    }
+
+    public function signup(UserRequest $request){
+        return "ASD";
+        $data = $request->validated();
+        $data['password'] = Bcrypt($request->password);
+
+        User::create($data);
+        return redirect('/')->with('success', 'Sukses Melakukan Signup');
     }
 
     public function detail($id){

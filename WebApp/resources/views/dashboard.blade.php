@@ -6,28 +6,14 @@
 
 <div class="section-body">
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-12">
             <div class="card">
-                <div style="width: 100%; height: 350px" id='myDiv'></div>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="card">
-                <div style="width: 100%; height: 350px" id='myDiv2'></div>
+                <div class="" style="width: 100%; height:200px;" id='myDiv'>
+                    <H1 style="padding: 80px 0; text-align:center;">WELCOME TO BIBLIOMEDIC</H1>
+                </div>
             </div>
         </div>
     </div>
-
-    <style>
-        .zoom {
-            transition: transform .2s;
-            margin: 0 auto;
-        }
-
-        .zoom:hover {
-            transform: scale(2);
-        }
-    </style>
 
     <div class="row">
         <div class="col-md-12">

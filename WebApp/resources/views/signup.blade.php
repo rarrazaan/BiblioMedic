@@ -50,11 +50,11 @@
                                     novalidate="">
                                     @csrf
                                     <div class="form-group">
-                                        <label for="username">Username</label>
-                                        <input id="username" type="text" class="form-control" name="username"
-                                            tabindex="1" required autofocus>
+                                        <label for="name">Name</label>
+                                        <input id="name" type="text" class="form-control" name="name" tabindex="1"
+                                            required autofocus>
                                         <div class="invalid-feedback">
-                                            Please fill in your username
+                                            Please fill in your name
                                         </div>
                                     </div>
 
@@ -68,11 +68,11 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="username">Username</label>
-                                        <input id="username" type="text" class="form-control" name="username"
-                                            tabindex="1" required autofocus>
+                                        <label for="email">Email</label>
+                                        <input id="email" type="email" class="form-control" name="email" tabindex="1"
+                                            required autofocus>
                                         <div class="invalid-feedback">
-                                            Please fill in your username
+                                            Please fill in your email
                                         </div>
                                     </div>
 
@@ -87,8 +87,18 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
+                                        <div class="d-block">
+                                            <label for="confpassword" class="control-label">Confirm Password</label>
+                                        </div>
+                                        <input id="confpassword" type="password" class="form-control"
+                                            name="confpassword" tabindex="2" required>
+                                        <div class="invalid-feedback">
+                                            please retype in your password
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
                                         <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4">
-                                            Login
+                                            Signup
                                         </button>
                                     </div>
                                 </form>

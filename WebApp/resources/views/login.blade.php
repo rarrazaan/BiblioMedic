@@ -75,6 +75,9 @@
                                     </div>
                                 </form>
                             </div>
+                            <div class="mx-auto">
+                                <a href="user/viewsignup" class="btn btn-primary">Sign Up</a>
+                            </div>
                         </div>
                     </div>
                 </div>
